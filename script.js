@@ -1,7 +1,6 @@
 let incrementor ='';
 let formerOperator = '';
 let operator = '';
-let displayedText = "";
 
 let countOperators = 0;
 let operand = 0;
@@ -9,20 +8,15 @@ let result = 0;
 
 let buttonNumber = document.querySelectorAll(".numberButton");
 let buttonOperator = document.querySelectorAll(".operatorButton");
+let buttonReset = document.querySelector(".resetButton");
 let resultText = document.querySelector(".result");
 
-
-//let partOne = '';
-//let partTwo = '';
-//let buttonEqual = document.querySelector(".equalButton");
+resultText.textContent = "0";
 
 buttonNumber.forEach((button) => {
   button.addEventListener('click', () => {
     incrementor += clickHandler(event);
-    displayedText = incrementor
-    resultText.textContent = displayedText;
-    console.log("displayed text: " + displayedText)
-    console.log("incrementor: " + incrementor)
+    resultText.textContent = incrementor;
     operand = +incrementor
   });
 });
@@ -47,43 +41,32 @@ buttonOperator.forEach((button) => {
           result = result * operand;
           break;
         case '/':
-          result = result / operand;
+          result = (result / operand);
           break;
         default:
           result = result;
+        }
       }
-    }
-    console.log("result :" + incrementor + " operator :" + operator + " operand: " + operand)
-    displayedText = result
-    resultText.textContent = displayedText;
-    incrementor = '';
+      if (result === Infinity || result === -Infinity) {
+        resultText.textContent = "You can't divide by zero, idiot"
+        result = 0;
+      }
+      else {
+        resultText.textContent = (result % 1 !== 0) ? result.toFixed(2) : result;
+      }
+      incrementor = '';
+      operand = 0;
+  });
+
+buttonReset.addEventListener('click', () => {
     operand = 0;
+    incrementor = '';
+    result = 0;
+    countOperators = 0;
+    resultText.textContent = '0'
   });
 });
 
-// //buttonEqual.addEventListener('click', () => {
-//     partTwo = incrementor
-//     switch (operator) {
-//       case '+':
-//         result = partOne + partTwo;
-//         break;
-//       case '-':
-//         result = partOne - partTwo;
-//         break;
-//       case '*':
-//         result = partOne * partTwo;
-//         break;
-//       default:
-//         result = partOne / partTwo;
-//     }
-//     result = result.toFixed(2);
-//     displayedText += " = " + result
-//     resultText.textContent = displayedText;
-//   });
-
-
 function clickHandler(event) {
-  //console.log(event.target.id)
   return event.target.id
-  //return partOne
 }

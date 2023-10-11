@@ -1,10 +1,19 @@
 h1 {
-  width: 310px;
+  width: 100%;
   text-align: center;
+}
+
+body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .calculator {
   display: flex;
+  width: 310px;
+  border: black solid 2px;
 }
 
 .numbers {
@@ -14,7 +23,6 @@ h1 {
   height: 180px;
   justify-content: space-between;
   padding: 10px;
-  background-color: grey;
 }
 
 .row {
@@ -22,10 +30,14 @@ h1 {
   justify-content: space-between;
 }
 
+.fourth.row {
+  display: flex;
+  justify-content: center;
+}
+
 .operators {
   display: flex;
   flex-direction: column;
-  background-color: grey;
   height: 180px;
   width: 70px;
   padding: 10px;
@@ -39,8 +51,34 @@ h1 {
 }
 
 
+.operatorButton, .resetButton {
+  background-color: orangered;
+  font-size: 15px;
+  color: white;
+}
+
 .numberButton {
   padding: 3px;
   width: 60px;
   height: 40px;
+  background-color: black;
+  color: white;
+}
+
+.numberButton:active, .operatorButton:active, .resetButton:active {
+  border-color: yellow;
+}
+
+.result {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-weight: 800;
+  font-size: 20px;
+  width: 290px;
+  height: 40px;
+  background-color: white;
+  padding-right: 20px;
+  margin-bottom: 5px;
+  border: black solid 2px;
 }
