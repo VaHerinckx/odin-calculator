@@ -30,10 +30,10 @@ body {
   justify-content: space-between;
 }
 
-.fourth.row {
+/*.fourth.row {
   display: flex;
   justify-content: center;
-}
+}*/
 
 .operators {
   display: flex;
@@ -44,7 +44,7 @@ body {
   justify-content: space-between;
 }
 
-.numberButton, .operators > * {
+.numberButton, .operators > *, .dotButton {
   background-color: white;
   border: black solid 2px;
   border-radius: 10px;
@@ -57,7 +57,15 @@ body {
   color: white;
 }
 
-.numberButton {
+.emptyButton {
+  padding: 3px;
+  width: 60px;
+  height: 40px;
+  background-color: white;
+  border: none;
+}
+
+.numberButton, .dotButton {
   padding: 3px;
   width: 60px;
   height: 40px;
@@ -65,7 +73,7 @@ body {
   color: white;
 }
 
-.numberButton:active, .operatorButton:active, .resetButton:active {
+.numberButton:active, .operatorButton:active, .resetButton:active, .dotButton:active {
   border-color: yellow;
 }
 

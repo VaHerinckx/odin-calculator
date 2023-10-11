@@ -3,6 +3,7 @@ let formerOperator = '';
 let operator = '';
 
 let countOperators = 0;
+let countDots = 0;
 let operand = 0;
 let result = 0;
 
@@ -10,6 +11,11 @@ let buttonNumber = document.querySelectorAll(".numberButton");
 let buttonOperator = document.querySelectorAll(".operatorButton");
 let buttonReset = document.querySelector(".resetButton");
 let resultText = document.querySelector(".result");
+let buttonDot = document.querySelector(".dotButton");
+
+buttonDot.addEventListener('click', (event) => {
+  clickHandlerDot(event)
+})
 
 resultText.textContent = "0";
 
@@ -56,17 +62,28 @@ buttonOperator.forEach((button) => {
       }
       incrementor = '';
       operand = 0;
+      countDots = 0;
   });
 
 buttonReset.addEventListener('click', () => {
+    console.log('button reset was clicked')
     operand = 0;
     incrementor = '';
     result = 0;
     countOperators = 0;
     resultText.textContent = '0'
+    countDots = 0;
   });
 });
 
 function clickHandler(event) {
   return event.target.id
+}
+
+function clickHandlerDot(event) {
+  if (countDots === 0) {
+    incrementor += "."
+    countDots =+1;
+    resultText.textContent = incrementor;
+   }
 }
