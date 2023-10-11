@@ -1,0 +1,46 @@
+h1 {
+  width: 310px;
+  text-align: center;
+}
+
+.calculator {
+  display: flex;
+}
+
+.numbers {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 180px;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: grey;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.operators {
+  display: flex;
+  flex-direction: column;
+  background-color: grey;
+  height: 180px;
+  width: 70px;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.numberButton, .operators > * {
+  background-color: white;
+  border: black solid 2px;
+  border-radius: 10px;
+}
+
+
+.numberButton {
+  padding: 3px;
+  width: 60px;
+  height: 40px;
+}
